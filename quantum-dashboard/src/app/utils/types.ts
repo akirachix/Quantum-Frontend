@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export interface FarmerDetails {
   farmers_name: string;
    farmer_location: string;
@@ -5,3 +6,27 @@ export interface FarmerDetails {
     farmer_id: number;
     sensor_id:number 
   }
+=======
+export interface Farmer {
+    status: string;
+    farmers_name: string;
+    phone_number: string;
+    sensor_id: number
+    farmer_location: string;
+    created_at:string
+    updated_at:string
+
+  }
+  
+  export type FarmersList = Farmer[];
+  
+  export interface PaginationInfo {
+    currentPage: number;
+    totalPages: number;
+  }
+  
+  export interface FarmersTableProps {
+    farmers: FarmersList;
+    pagination: PaginationInfo;
+  }
+>>>>>>> 94df123301192b4ce0601ecc21c457d1de7af914
