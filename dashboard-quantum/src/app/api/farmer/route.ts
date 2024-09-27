@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -7,11 +8,13 @@ export async function GET() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      cache:'no-cache'
     });
 
     if (!response.ok) {
-      return new NextResponse(`Failed to fetch farmers.` + response.text());
+      const errorMessage = await response.text();
+      return new NextResponse(`Failed to fetch farmers: ${errorMessage}`, { status: response.status });
     }
 
     const result = await response.json();

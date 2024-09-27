@@ -8,7 +8,7 @@ const FarmersDetails = () => {
   const { farmers, loading, error } = useFarmers();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const farmersPerPage = 6;
+  const farmersPerPage = 8;
 
   if (loading) {
     return <div className="p-40 text-center">Loading...</div>;
@@ -18,20 +18,18 @@ const FarmersDetails = () => {
     return <div className="p-40 text-center text-red-500">Error: { error}</div>;
   }
 
-
   const filteredFarmers = farmers.filter(farmer => 
     farmer.farmers_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     farmer.phone_number.includes(searchTerm) ||
     (farmer.sensor_id && String(farmer.sensor_id).includes(searchTerm)) ||
     farmer.farmer_location.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ).reverse(); // Added .reverse() here
 
   const totalPages = Math.ceil(filteredFarmers.length / farmersPerPage);
   
   const indexOfLastFarmer = currentPage * farmersPerPage;
   const indexOfFirstFarmer = indexOfLastFarmer - farmersPerPage;
   
- 
   const currentFarmers = filteredFarmers.slice(indexOfFirstFarmer, indexOfLastFarmer);
 
   return (
@@ -100,7 +98,6 @@ const FarmersDetails = () => {
         </table>
       </div>
 
-     
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-6">
           <button
