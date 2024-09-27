@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+
 
 const Signup = () => {
   const router = useRouter();
@@ -18,12 +20,13 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <img 
-        src="/images/rutubalogo.png" 
-        className="m-4" 
-        width={300} 
-        alt="Rutuba Logo" 
-      />
+<Image
+  src="/images/rutubalogo.png" 
+  alt="Rutuba Logo" 
+  width={300}
+  height={150} 
+  className="m-4" 
+/>
     </div>
   );
 };

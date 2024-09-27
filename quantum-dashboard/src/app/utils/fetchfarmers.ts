@@ -1,7 +1,7 @@
-const baseURL = "/api/farmer";
+const baseUrl = '/api/farmer';
 export const fetchFarmers = async () => {
   try {
-    const response = await fetch(baseURL);
+    const response = await fetch(baseUrl);
     if (!response.ok) {
       throw new Error("Failed to fetch farmers");
     }
