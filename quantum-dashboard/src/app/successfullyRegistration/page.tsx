@@ -1,11 +1,12 @@
 'use client';
 import React from 'react';
+import Image from 'next/image'
 
 const SuccessMessage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-white">
       <div className="bg-white p-12 rounded-lg shadow-lg text-center">
-        <img
+        <Image
           src="/images/checkbox.svg"
           alt="Success"
           className="mx-auto mb-8"
