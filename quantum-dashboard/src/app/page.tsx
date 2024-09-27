@@ -1,15 +1,28 @@
-import React from "react";
-import FarmersDetails from "./farmerdetails/page";
-import RegisterForm from "./registration/page";
 
-function App() {
-  return (
-    <div className="App">
-      <RegisterForm/>
-      {/* <FarmersDetails /> */}
+'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { getCookie } from 'cookies-next';
 
-    </div>
-  );
-}
+const Page = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const token = getCookie('authToken');
+  
+      if (token) {
+        const role = getCookie("userRole");
+        if (role === "admin") {
+          router.push("/admin")
+        }else{
+          router.push("/dashboard")
+        }
+      router.push('/dashboard');
+      }
+  }, [router]);
 
-export default App;
+  return null
+};
+
+export default Page
+
+
