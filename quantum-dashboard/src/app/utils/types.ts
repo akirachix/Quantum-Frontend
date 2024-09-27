@@ -1,3 +1,11 @@
+
+export interface FarmerDetails {
+  farmers_name: string;
+   farmer_location: string;
+   phone_number: string; 
+    sensor_id:number 
+  }
+
 export interface Farmer {
     status: string;
     farmers_name: string;
@@ -20,3 +28,4 @@ export interface Farmer {
     farmers: FarmersList;
     pagination: PaginationInfo;
   }
+
