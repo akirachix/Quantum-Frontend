@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useRouter } from "next/navigation";
-import { userRegister } from "../utils/registerFarmer";
 import Image from "next/image";
 
 interface FormData {
@@ -14,12 +12,6 @@ interface FormData {
   sensor_id: number;
 }
 
-interface UserData {
-  farmers_name: string;
-  farmer_location: string;
-  phone_number: string;
-  sensor_id: number;
-}
 
 const schema = yup.object().shape({
   farmers_name: yup.string().required(""),
@@ -29,22 +21,19 @@ const schema = yup.object().shape({
 });
 
 const RegisterForm = () => {
-  const router = useRouter();
-  const [apiError, setApiError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [apiError] = useState<string | null>(null);
+  const [successMessage] = useState<string | null>(null);
+  const [isLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = async (data: FormData) => {
-    // ... (onSubmit function remains unchanged)
   };
 
   return (
@@ -71,7 +60,7 @@ const RegisterForm = () => {
               htmlFor="farmers_name"
               className="block mb-2 text-sm font-medium"
             >
-              Farmer's Name
+              Farmers Name
             </label>
             <input
               type="text"
