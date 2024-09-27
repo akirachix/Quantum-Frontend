@@ -55,22 +55,23 @@ const Login = () => {
           <div>
             <label htmlFor="email" className="block mb-2 text-lg font-medium text-gray-700">Email</label>
             <input
-              id="email"
-              type="email"
-              {...register('email')}
-              className="w-full py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 px-0.5"
-            />
-            {errors.email && <p className="text-red-600">{errors.email.message}</p>}
-          </div>
-          <div>
-            <label htmlFor="password" className="block mb-2 text-lg font-medium text-gray-700">Password</label>
-            <div className="relative">
-              <input
-                id="password"
-                type={passwordVisible ? 'text' : 'password'}
-                {...register('password')}
-                className="w-96 py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
+                id="email"
+                type="email"
+               {...register('email')}
+              className="w-full py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 pl-5" 
               />
+             {errors.email && <p className="text-red-600">{errors.email.message}</p>}
+             </div>
+                <div>
+            <label htmlFor="password" className="block mb-2 text-lg font-medium text-gray-700">Password</label>
+             <div className="relative">
+             <input
+                 id="password"
+                 type={passwordVisible ? 'text' : 'password'}
+                 {...register('password')}
+                 className="w-96 py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 pl-5" 
+                 />
+
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
