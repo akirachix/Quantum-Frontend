@@ -4,6 +4,9 @@ import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartOptions } from 'chart.js';
 import { useFarmers } from '@/app/hooks/useGetAllFarmers';
+import Layout from '@/app/Layout';
+
+
 
 
 
@@ -120,8 +123,9 @@ const Dashboard = () => {
   ];
 
   return (
+     <Layout>
     <div>
-      <div className="bg-white ml-48 2xl:ml-48 xl:ml-4 lg:ml-4 w-[1300px] 2xl:w-[1300px] xl:w-[1000px] lg:w-[700px] xl:h-[600px] flex h-screen" id='dashboard'>
+      <div className="bg-white ml-48 2xl:ml-48 xl:ml-4 lg:ml-4 w-[1300px] 2xl:w-[1300px] xl:w-[1000px] lg:w-[700px] xl:h-[600px] flex h-screen">
         <main className="flex-1 sm:p-12 mx-auto w-full 2xl:w-full xl:w-full">
           <header className="mb-12 sm:mb-16 text-center">
             <h2 className="text-3xl sm:text-5xl 2xl:text-5xl xl:text-4xl lg:text-3xl lg:-mt-8 font-bold">Dashboard</h2>
@@ -144,6 +148,7 @@ const Dashboard = () => {
         </main>
       </div>
     </div>
+    </Layout>
   );
 };
 

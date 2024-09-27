@@ -1,5 +1,5 @@
 import React from "react";
-import FarmersDetails from "../component/Farmerdetails/page";
+import FarmersDetails from "../farmerdetails/page";
 
 function App() {
   return (

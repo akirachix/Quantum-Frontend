@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchFarmers } from '../utils/fetchfarmers';
 import { Farmer } from '../utils/types';
+import { fetchFarmers } from '../utils/fetchfarmers';
 
 export function useFarmers() {
   const [farmers, setFarmers] = useState<Farmer[]>([]);

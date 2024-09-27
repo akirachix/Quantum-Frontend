@@ -1,20 +1,13 @@
 import Layout from "./Layout"
-import Dashboard from "./component/Dashboard"
-import FarmersDetails from "./component/Farmerdetails/page"
+import Dashboard from "./component/Dashboard/page"
+import FarmersDetails from "./farmerdetails/page"
 
 export default function name() {
   return(
     <main>
-     <Layout>
+ 
       <Dashboard/>
-      <FarmersDetails />
-     <div>
-      
-     </div>
-
-     </Layout>
-    
-      
+      {/* <FarmersDetails /> */}  
 
     </main>
   )

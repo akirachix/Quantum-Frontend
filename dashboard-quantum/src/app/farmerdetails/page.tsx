@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { useFarmers } from '@/app/hooks/usefarmersDetails';
+import Layout from '../Layout';
 
 const FarmersDetails = () => {
   const { farmers, loading, error } = useFarmers();
@@ -34,7 +35,8 @@ const FarmersDetails = () => {
   const currentFarmers = filteredFarmers.slice(indexOfFirstFarmer, indexOfLastFarmer);
 
   return (
-    <div className="p-6 bg-gray-100 font-sans">
+    <Layout>
+    <div className="p-6 bg-gray-100 font-sans ml-12 2xl:w-[1500px]">
       <h1 className="text-3xl font-bold text-center mb-6">Farmers Details</h1>
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="p-4 border-b border-gray-200">
@@ -130,6 +132,7 @@ const FarmersDetails = () => {
         </div>
       )}
     </div>
+    </Layout>
   );
 };
 
