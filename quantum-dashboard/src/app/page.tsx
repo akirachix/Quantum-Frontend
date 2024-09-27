@@ -1,15 +1,29 @@
 
 
+'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { getCookie } from 'cookies-next';
 
-export default function Home() {
-  return (
- <main>
-      
+const Page = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const token = getCookie('authToken');
+  
+      if (token) {
+        const role = getCookie("userRole");
+        if (role === "admin") {
+          router.push("/admin")
+        }else{
+          router.push("/dashboard")
+        }
+      router.push('/dashboard');
+      }
+  }, [router]);
 
- </main>
-    
-  );
-}
+  return null
+};
 
+export default Page
 
 
