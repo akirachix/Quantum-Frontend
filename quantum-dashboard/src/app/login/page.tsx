@@ -83,14 +83,14 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className={`w-48 h-14 bg-[#E0B16C] text-white rounded-md hover:bg-[#E0B16C] ml-8 ${isSubmitting ? "opacity-40 cursor-not-allowed" : ""}`}
+            className={`w-48 h-14 bg-[#E0B16C] text-white rounded-md hover:bg-[#E0B16C] ml-28 ${isSubmitting ? "opacity-40 cursor-not-allowed" : ""}`}
             disabled={isSubmitting}
           >
             {isSubmitting ? "Logging you In...." : "Login"}
           </button>
           <button
             type="button"
-            className="w-full py-2 mt-4 border border-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-100 flex items-center justify-center"
+            className="w-full py-2 mt-4 border border-gray-300 text-gray-700 font-semibold rounded-md hover:bg-gray-100 flex items-center justify-center ml-8" 
           >
             <img src="/images/google.png" alt="Google Logo" className="w-5 h-5 mr-2" />
             Continue with Google
@@ -102,3 +102,7 @@ const Login = () => {
 };
 
 export { Login };
+
+
+
+

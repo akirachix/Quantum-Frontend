@@ -5,8 +5,8 @@ import FarmersDetails from "./farmerdetails/page";
 export default function Home() {
   return (
  <main>
-<Login/>
-<FarmersDetails />
+        <Login/>
+        <FarmersDetails />
 
  </main>
     

@@ -29,10 +29,3 @@ export const userlogin = async (loginData: { email: string; password: string; })
 
 
 
-
-
-
-
-
-
-
