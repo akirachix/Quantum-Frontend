@@ -33,7 +33,7 @@ const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async () => {
   };
 
   return (
