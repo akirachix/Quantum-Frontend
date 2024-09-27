@@ -13,12 +13,16 @@ export async function POST(request: NextRequest) {
     );
   }
   
+
+
   try {
     const { email, password } = await request.json();
+
     if (!email || !password) {
-      console.error('Validation failed: Missing username or password');
+      console.error('Validation failed: Missing email or password');
       return NextResponse.json(
         { error: 'Username and password are required.' },
+        { error: 'Email and password are required.' },
         { status: 400 }
       );
     }
@@ -47,6 +51,12 @@ export async function POST(request: NextRequest) {
           { status: response.status }
         );
       }
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { error: textResponse || 'Login failed. Invalid credentials.' },
+        { status: response.status }
+      );
     }
 
     const result = JSON.parse(textResponse);
@@ -54,9 +64,13 @@ export async function POST(request: NextRequest) {
     
   } catch (error) {
     console.error('Error occurred:', error); 
+    console.error('Error occurred:', (error as Error).message);
     return NextResponse.json(
       { error: (error as Error).message || 'An error occurred. Please try again later.' },
       { status: 500 }
     );
   }
 }
+
+
+

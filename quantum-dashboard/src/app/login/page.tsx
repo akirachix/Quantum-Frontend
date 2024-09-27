@@ -109,6 +109,8 @@ const Login = () => {
   className="mr-2" 
 />
          
+
+            <Image src="/images/google.png" alt="Google Logo" width={50}  height={20}/>
             Continue with Google
           </button>
         </form>
