@@ -6,7 +6,7 @@ import { BarChart, Users } from "lucide-react";
 export default function Home() {
 
   const menuItems = [
-    { name: "Dashboard", icon: BarChart, href: "/", active: true },
+    { name: "Dashboard", icon: BarChart, href: "/dashboard", active: true },
     { name: "Farmer Metrics", icon: Users, href: "/farmerdetails ", active: true },
   ];
 
