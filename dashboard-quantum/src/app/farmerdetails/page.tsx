@@ -34,13 +34,13 @@ const FarmersDetails = () => {
 
   return (
     <Layout>
-    <div className="p-6 bg-gray-100 font-sans ml-12 2xl:w-[1500px]">
+    <div className="p-6 bg-gray-100 font-sans ml-12 2xl:w-[1500px] ">
       <h1 className="text-3xl font-bold text-center mb-6">Farmers Details</h1>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="p-4 border-b border-gray-200">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden 2xl:h-[700px] xl:h-[600px] lg:h-[400px]">
+        <div className="p-4 border-b  border-gray-200">
           <div className="relative w-full text-center ">
             <div className="flex items-center p-2 sm:p-4 border ml-[35%]  border-black rounded-xl mb-4 w-full sm:w-1/4">
-              <Search className="text-gray-500 mr-2" />
+              <Search className="text-gray-500 mr-2 " />
               <input
                 type="text"
                 placeholder="Search..."
@@ -54,7 +54,7 @@ const FarmersDetails = () => {
             </div>
           </div>
         </div>
-        <table className="w-full divide-y font-bold border border-black">
+        <table className="w-full divide-y font-bold border border-black xl:h-[400px] lg:-ml-0">
           <thead className="bg-gray-50 border-b border-black ">
             <tr>
               <th className="px-7 py-3 text-left text-xs font-bold uppercase tracking-wider">Name</th>

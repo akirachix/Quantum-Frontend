@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 const SuccessMessage = () => {
   return (
+    
     <div className="flex justify-center items-center h-screen bg-white">
       <div className="bg-white p-12 rounded-lg shadow-lg text-center">
         <Image
@@ -17,6 +18,7 @@ const SuccessMessage = () => {
         <p className="text-lg text-gray-600">Thank you for registering.</p>
       </div>
     </div>
+  
   );
 };
 

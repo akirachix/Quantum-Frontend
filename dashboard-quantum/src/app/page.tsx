@@ -1,5 +1,3 @@
-
-
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -13,15 +11,15 @@ const Home = () => {
     if (token) {
       const role = getCookie("userRole");
 
-      if (role === "admin") {
+      if (role === "ADMIN") {
 
-        router.push("/admin");
-      } else if (role === "agricultural_officer") {
+        router.push("/dashboard");
+      } else if (role === "Agricultural Officer") {
         router.push("/registration");
       } 
     }else {
-      alert("Login successful");
-      router.push("/login");
+
+      router.push("/teaser");
     }
   }, [router]);
 

@@ -1,41 +1,39 @@
-<<<<<<< HEAD:dashboard-quantum/src/app/api/farmers/route.ts
+
+
 import { NextResponse } from 'next/server';
+
 const baseURL = process.env.BASE_URL;
 
 export async function GET() {
   try {
     const response = await fetch(`${baseURL}/api/farmers/`);
+    
     if (!response.ok) {
-    return 'Failed to fetch farmers details' + response.text()
+      const errorMessage = await response.text();
+      return NextResponse.json(
+        { error: 'Failed to fetch farmers details: ' + errorMessage },
+        { status: response.status }
+      );
     }
 
     const farmers = await response.json();
-    return NextResponse.json(farmers); 
+    return NextResponse.json(farmers);
   } catch (error) {
     console.error('Error fetching farmers:', error);
-    return NextResponse.json({ error: 'Failed to fetch farmers' + (error as Error).message}, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch farmers: ' + (error as Error).message },
+      { status: 500 }
+    );
   }
 }
 
-
-
-
-
-
-
-
-
-
-=======
-
-import { NextResponse } from 'next/server';
-const baseUrl = process.env.BASE_URL;
 export async function POST(request: Request) {
   try {
     const requestData = await request.json();
-    console.log('Sending request to:', `${baseUrl}/api/farmers/`);
+    console.log('Sending request to:', `${baseURL}/api/farmers/`);
     console.log('Request data:', JSON.stringify(requestData));
-    const response = await fetch(`${baseUrl}/api/farmers/`, {
+    
+    const response = await fetch(`${baseURL}/api/farmers/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,16 +41,20 @@ export async function POST(request: Request) {
       body: JSON.stringify(requestData),
       signal: AbortSignal.timeout(10000),
     });
+
     console.log('Response status:', response.status);
     console.log('Response headers:', JSON.stringify(Object.fromEntries(response.headers)));
+
     const responseText = await response.text();
     console.log('Raw response text:', responseText);
+
     if (!response.ok) {
       return NextResponse.json(
         { error: responseText || 'Failed to create user' },
         { status: response.status }
       );
     }
+
     let result;
     try {
       result = JSON.parse(responseText);
@@ -63,6 +65,7 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
     console.log('User created successfully:', result);
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
@@ -74,9 +77,8 @@ export async function POST(request: Request) {
       );
     }
     return NextResponse.json(
-      { error: 'An unexpected error occurred. ' + (error as Error).message },
+      { error: 'An unexpected error occurred: ' + (error as Error).message },
       { status: 500 }
     );
   }
 }
->>>>>>> 359de80a435bed64690b4c4d676610bfcdd8d2d7:quantum-dashboard/src/app/api/farmers/route.ts

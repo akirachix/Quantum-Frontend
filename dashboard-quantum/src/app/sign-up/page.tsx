@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import React, { useState } from 'react';
@@ -46,6 +44,7 @@ const SignUpPage = () => {
         lastname: data.lastName,
         email: data.email,
         password: data.password,
+        role: data.role,
       });
 
       if (response.token) {
@@ -57,8 +56,15 @@ const SignUpPage = () => {
         setCookie('userId', response.userId, { maxAge: 60 * 60 * 24 * 7 });
       }
 
+
       setSuccessMessage("Account created successfully!");
       setTimeout(() => router.push("/login"), 2000);
+
+      if (data.role === "ADMIN") {
+        setTimeout(() => router.push("/dashboard"), 2000); 
+      } else if (data.role === "Agricultural Officer") {
+        setTimeout(() => router.push("/registration"), 2000); 
+      }
     } catch (error) {
       if (error instanceof Error) {
         setApiError(error.message);
@@ -91,8 +97,8 @@ const SignUpPage = () => {
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#016a2f] mb-8 md:mb-16 lg:mb-40">Welcome</h1>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col p-4 md:p-8 lg:p-12 bg-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[#016a2f] font-nunito items-center mt-6 text-center ">Sign Up</h2>
+        <div className="w-full md:w-1/2 flex flex-col p-4 md:p-8 2xl:p-12 lg:p-0 bg-white">
+          <h2 className="text-3xl md:text-4xl font-bold 2xl:mb-6 lg:mb-4 mb-6 md:mb-8 text-[#016a2f] font-nunito items-center mt-6 text-center ">Sign Up</h2>
 
           <div className="text-center mb-4">
             {apiError && <p className="text-red-500">{apiError}</p>}
@@ -103,21 +109,21 @@ const SignUpPage = () => {
             <input
               {...register('firstName')}
               placeholder="First Name"
-              className="w-full h-12 md:h-16 p-3 border border-gray-300 rounded-lg"
+              className="w-full h-12 md:h-16 2xl:h-16 xl:h-16 lg:h-12 p-3 border border-gray-300 rounded-lg"
             />
             {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
             
             <input
               {...register('lastName')}
               placeholder="Last Name"
-              className="w-full h-12 md:h-16 p-3 border border-gray-300 rounded-lg"
+              className="w-full h-12 md:h-16 2xl:h-16 xl:h-16 lg:h-12 p-3 border border-gray-300 rounded-lg"
             />
             {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName.message}</p>}
             
             <input
               {...register('email')}
               placeholder="Email"
-              className="w-full h-12 md:h-16 p-3 border border-gray-300 rounded-lg"
+              className="w-full h-12 2xl:h-16 lg:h-12 xl:h-16 md:h-16 p-3 border border-gray-300 rounded-lg"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
             
@@ -126,7 +132,7 @@ const SignUpPage = () => {
                 type={showPassword ? "text" : "password"}
                 {...register('password')}
                 placeholder="Password"
-                className="w-full h-12 md:h-16 p-3 border border-gray-300 rounded-lg"
+                className="w-full h-12 md:h-16 2xl:h-16 xl:h-16 lg:h-12 p-3 border border-gray-300 rounded-lg"
               />
               <button
                 type="button"
@@ -143,7 +149,7 @@ const SignUpPage = () => {
                 type={showConfirmPassword ? "text" : "password"}
                 {...register('confirmPassword')}
                 placeholder="Confirm Password"
-                className="w-full h-12 md:h-16 p-3 border border-gray-300 rounded-lg"
+                className="w-full h-12 2xl:h-16 lg:h-12 xl:h-16 md:h-16 p-3 border border-gray-300 rounded-lg"
               />
               <button
                 type="button"
@@ -183,7 +189,7 @@ const SignUpPage = () => {
 
           <p className="mt-6 text-center text-black-800 font-nunito">
             Already have an account?{' '}
-            <Link href="/login" className="text-[#016a2f] font-semibold font-nunito">
+            <Link href="/dashboard" className="text-[#016a2f] font-semibold font-nunito">
               Login
             </Link>
           </p>

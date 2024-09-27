@@ -43,7 +43,7 @@ export default function Home() {
                       }`}
                       size={38}
                     />
-                    <span className="text-2xl 2xl:text-2xl xl:text-xl lg:lg font-bold text-white">{item.name}</span>
+                    <span className="text-xl 2xl:text-2xl xl:text-xl lg:lg font-bold text-white">{item.name}</span>
                   </Link>
                 </li>
               ))}

@@ -4,6 +4,7 @@ interface UserData {
     lastname: string;
     email: string;
     password: string;
+    role:string;
 
   }
   

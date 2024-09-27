@@ -1,19 +1,17 @@
-
-
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   const baseUrl = process.env.BASE_URL;
   
   try {
-    const { firstname, lastname, email, password } = await request.json();
+    const { firstname, lastname, email, password , role } = await request.json();
     
     const response = await fetch(`${baseUrl}/api/register/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ firstname, lastname, email, password }),
+      body: JSON.stringify({ firstname, lastname, email, password, role }),
     });
 
     if (!response.ok) {

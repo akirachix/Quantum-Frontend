@@ -126,22 +126,22 @@ const Dashboard = () => {
      <Layout>
       
     <div>
-      <div className="bg-white ml-48 2xl:ml-48 xl:ml-4 lg:ml-4 w-[1300px] 2xl:w-[1300px] xl:w-[1000px] lg:w-[700px] xl:h-[600px] flex h-screen">
+      <div className="bg-white ml-48 2xl:ml-48 xl:ml-4 lg:ml-4 w-[1300px] 2xl:w-[1300px] xl:w-[1000px] lg:w-[670px] xl:h-[600px] flex h-screen">
         <main className="flex-1 sm:p-12 mx-auto w-full 2xl:w-full xl:w-full">
           <header className="mb-12 sm:mb-16 text-center">
             <h2 className="text-3xl sm:text-5xl 2xl:text-5xl xl:text-4xl lg:text-3xl lg:-mt-8 font-bold">Dashboard</h2>
           </header>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 2xl:gap-6 xl:gap-6 lg:gap-20 -mt-8 ml-16 lg:ml-0">
             {statsSections.map(({ id, title, value, bgColor, textColor, titleSize, valueSize }) => (
-              <div key={id} className={`bg-[${bgColor}] p-6 text-center w-72 h-32 2xl:w-72 2xl:h-32 xl:w-52 lg:w-40 lg:h-24 rounded-lg shadow-md bg-[#89C945]`}>
-                <h3 className={`${textColor} ${titleSize} font-bold lg:text-xl`}>{title}</h3>
-                <p className={`${textColor} ${valueSize} font-bold`}>{value}</p>
+              <div key={id} className={`bg-[${bgColor}] p-6 2xl:p-4 text-center w-72 h-32 2xl:w-72 2xl:h-32 xl:w-52 lg:w-44 lg:h-24 rounded-lg shadow-md bg-[#89C945]`}>
+                <h3 className={`${textColor} ${titleSize} font-bold 2xl:text-2xl lg:text-lg`}>{title}</h3>
+                <p className={`${textColor} ${valueSize} font-bold 2xl:text-6xl lg:text-2xl`}>{value}</p>
               </div>
             ))}
           </div>
           <div className="bg-white h-full p-2 rounded-lg shadow-lg 2xl:h-[670px] lg:-ml-0 mb-8 2xl:mt-8 xl:h-full lg:h-[350px]">
-            <h3 className="text-center mt- font-bold 2xl:text-3xl lg:text-xl text-3xl xl:mt-8">Number of Farmers Registered Each Month</h3>
-            <div className="w-full mt-4 2xl:h-[560px] lg:h-screen xl:h-[450px]">
+            <h3 className="text-center mt- font-bold 2xl:text-3xl lg:mt-12 lg:text-2xl text-4xl xl:text-3xl xl:mt-8">Number of Farmers Registered Each Month</h3>
+            <div className="w-full mt-4 2xl:h-[560px] lg:h-[300px] xl:h-[450px]">
               <Bar data={data} options={options} />
             </div>
           </div>
