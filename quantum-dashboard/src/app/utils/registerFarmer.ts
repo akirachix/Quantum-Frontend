@@ -1,9 +1,8 @@
-const url = 'api/farmers/'
-export const userRegister = async (registerData: { farmers_name: string; farmer_location: string; phone_number: string; farmer_id: number;sensor_id:number }) => {
+import { FarmerDetails } from "./types";
+
+const url = '/api/farmers/'
+export const userRegister = async (registerData: FarmerDetails) => {
   try {
-    if (!url) {
-      throw new Error('Base URL not set.');
-    }
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -12,12 +11,11 @@ export const userRegister = async (registerData: { farmers_name: string; farmer_
       body: JSON.stringify(registerData),
     });
     if (!response.ok) {
-      const error = await response.json();
-      return { error: error.detail || 'Register failed. Invalid Credentials' };
+      throw new Error (`Error: ${response.status} ${response.statusText}`)
     }
-    const result = await response.json();
-    return { data: result };
+    return await response.json();
   } catch (error) {
-    return { error: 'An error occurred. Please try again later.' };
+    console.error('Error posting data:', error);
+    throw new Error ('Failed to post data')
   }
 };
