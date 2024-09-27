@@ -1,12 +1,15 @@
-import React from "react";
-import FarmersDetails from "./farmerdetails/page";
 
-function App() {
+
+
+export default function Home() {
   return (
-    <div className="App">
-      <FarmersDetails />
-    </div>
+ <main>
+      
+
+ </main>
+    
   );
 }
 
-export default App;
+
+
