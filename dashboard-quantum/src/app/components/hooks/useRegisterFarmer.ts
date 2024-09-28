@@ -1,7 +1,7 @@
 
 import { FarmerDetails } from '../utils/types';
 import { useState } from 'react';
-import { userRegister as registerAPI } from '@/app/utils/registerFarmer';
+import { userRegister as registerAPI } from '../utils/registerFarmer';
 
 export const useRegisterFarmer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

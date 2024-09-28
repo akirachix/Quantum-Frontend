@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartOptions } from 'chart.js';
-import { useFarmers } from '@/app/hooks/useGetAllFarmers';
-import Layout from '@/app/Layout';
+import { useFarmers } from '../hooks/useGetAllFarmers';
+import Layout from '../Layout';
 
 
 

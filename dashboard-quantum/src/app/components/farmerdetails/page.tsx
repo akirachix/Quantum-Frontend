@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
-import { useFarmers } from '@/app/hooks/usefarmersDetails';
+import { useFarmers } from '../hooks/usefarmersDetails';
 import Layout from '../Layout';
 
 const FarmersDetails = () => {
