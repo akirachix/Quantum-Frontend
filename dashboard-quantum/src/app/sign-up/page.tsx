@@ -39,7 +39,7 @@ const SignUpPage = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await userSignup({
+       await userSignup({
         firstname: data.firstName,
         lastname: data.lastName,
         email: data.email,

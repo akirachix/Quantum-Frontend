@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { userlogin } from '../components/utils/userlogin';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { getCookie, setCookie } from 'cookies-next'; 
+import { getCookie } from 'cookies-next'; 
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
