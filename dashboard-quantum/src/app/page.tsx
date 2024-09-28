@@ -7,17 +7,15 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const token = getCookie('authToken');
-    if (token) {
-      const role = getCookie("userRole");
+    const role = getCookie("role");
 
-      if (role === "ADMIN") {
+    if (role === "ADMIN") {
 
-        router.push("/dashboard");
-      } else if (role === "Agricultural Officer") {
-        router.push("/registration");
-      } 
-    }else {
+      router.push("/dashboard");
+    } else if (role === "Agricultural Officer") {
+      router.push("/registration");
+    }
+    else {
 
       router.push("/teaser");
     }
