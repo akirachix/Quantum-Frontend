@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useRouter } from 'next/navigation'; // Updated import
+import { useRouter } from 'next/navigation'; 
 import Image from "next/image";
 interface FormData {
   farmers_name: string;
@@ -29,7 +29,7 @@ const RegisterForm = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async () => {
     setIsLoading(true);
     setApiError(null);
     setSuccessMessage(null);
@@ -37,7 +37,7 @@ const RegisterForm = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setSuccessMessage("Registered successfully");
       router.push("/successfullyRegistration");
-    } catch (error) {
+    } catch {
       setApiError("An error occurred during registration");
     } finally {
       setIsLoading(false);
