@@ -12,6 +12,7 @@ const Home = () => {
     if (role === "ADMIN") {
 
       router.push("/dashboard");
+      
     } else if (role === "Agricultural Officer") {
       router.push("/registration");
     }
