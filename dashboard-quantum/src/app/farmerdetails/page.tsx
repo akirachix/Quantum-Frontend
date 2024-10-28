@@ -34,12 +34,12 @@ const FarmersDetails = () => {
 
   return (
     <Layout>
-    <div className="p-6 bg-gray-100 font-sans ml-12 2xl:w-[1500px] ">
+    <div className="p-6 bg-gray-100 font-sans ml-12 2xl:w-[1500px] xl:w-[930px]">
       <h1 className="text-3xl font-bold text-center mb-6">Farmers Details</h1>
       <div className="bg-white rounded-lg shadow-md overflow-hidden 2xl:h-[700px] xl:h-[600px] lg:h-[400px]">
         <div className="p-4 border-b  border-gray-200">
           <div className="relative w-full text-center ">
-            <div className="flex items-center p-2 sm:p-4 border ml-[35%]  border-black rounded-xl mb-4 w-full sm:w-1/4">
+            <div className="flex items-center p-2 sm:p-4 border ml-[35%]  border-black rounded-xl mb-4 w-full sm:w-1/4 xl:w-[300px] lg:w-[300px]">
               <Search className="text-gray-500 mr-2 " />
               <input
                 type="text"
